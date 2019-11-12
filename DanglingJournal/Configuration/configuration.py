@@ -37,14 +37,19 @@ LOGGING_CONFIG = {
 
 class BaseConfig(object):
     APPLICATION_NAME = "DanglingJournal"
-    DanglingJournal_VERSION = "1.0.1"
+    DANGLINGJOURNAL_VERSION = "1.0.1"
+
+    DANGLINGJOURNAL_DATA_D = "DanglingJournal/Data"
 
     DEBUG = True
     TESTING = True
+
     PROTECTED_PATH = "ProtectedPath"
     TEMPLATES_AUTO_RELOAD = True
     THREADED = True
+
     ACCOUNT_ENDPOINT = "http://127.0.0.1:36302"
+
     HOST = "0.0.0.0"
     PORT = 11220
 

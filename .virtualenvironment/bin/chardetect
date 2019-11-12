@@ -1,4 +1,4 @@
-#!/home/fahad/Projects/dangling-journal/.virtualenvironment/bin/python
+#!/home/fahad/PROJECTS/dangling-journal/.virtualenvironment/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

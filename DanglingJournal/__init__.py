@@ -7,15 +7,7 @@
 #
 #  Copyright (c) 2019. All rights reserved.
 
-# -----------------------------
-#
-# Project: DanglingJournal
-# Version: 2019-11-12_17-34-11
-#
-# Date: Tue Nov 12 17:34:27 +06 2019
-# Created By: Fahad Ahammed
-#
-# -----------------------------
+
 from flask import Flask
 from DanglingJournal.Configuration.configuration import configure_app, LOGGING_CONFIG
 
@@ -55,3 +47,4 @@ limiter = Limiter(
 
 # Routes
 from DanglingJournal.Views import home
+from DanglingJournal.Views import note
