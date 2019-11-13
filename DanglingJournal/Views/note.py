@@ -14,6 +14,13 @@ from DanglingJournal import app
 from DanglingJournal.Model.note import Note
 
 
+@app.route("/note", methods=["GET"])
+def note():
+    if request.method == "GET":
+        page_title = "Note | DanglingJournal"
+        return render_template(template_name_or_list="note.html", page_title=page_title)
+
+
 @app.route("/api/note/list", methods=["GET"])
 def api_note_list():
     if request.method == "GET":

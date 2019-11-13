@@ -28,38 +28,20 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+    <!-- Trumbowyg -->
+    <script src="{{ url_for('static', filename='trumbo/trumbowyg.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='trumbo/ui/trumbowyg.min.css') }}">
 
-<!--    <style>-->
-<!--    th {-->
-<!--        background-color: rgba(86, 57, 6, 0.9803921568627451);-->
-<!--        color: rgb(186, 255, 227);-->
-<!--    }-->
-<!--    a {-->
-<!--        color: #0500fb;-->
-<!--    }-->
-<!--    a:hover {-->
-<!--        color: #6865ea;-->
-<!--        text-decoration: underline;-->
-<!--    }-->
-<!--    td {-->
-<!--        color: black;-->
-<!--    }-->
-<!--    select {-->
-<!--        color: black;-->
-<!--    }-->
-<!--    </style>-->
 
-<!--    <script>-->
-<!--    $(document).ready(function () {-->
-<!--        var title = jQuery(this).attr('title');-->
-<!--        if (title === "DeployTank") {console.log("HOME: ",title);$("#ac-li").addClass("active");};-->
-<!--        if (title.includes("History")) {console.log("History: ",title);$("#hi-li").addClass("active");};-->
-<!--        if (title.includes("CPU")) {console.log("CPU: ",title);$("#cpu-li").addClass("active");};-->
-<!--        if (title.includes("Report")) {console.log("Report: ",title);$("#re-li").addClass("active");};-->
-<!--        if (title.includes("Service")) {console.log("Service Info: ",title);$("#si-li").addClass("active");};-->
-<!--        if (title.includes("GCLOG")) {console.log("GCLOG: ",title);$("#gl-li").addClass("active");};-->
-<!--    });-->
-<!--    </script>-->
+
+    <script>
+        $(document).ready(function () {
+            var title = jQuery(this).attr('title');
+            if (title === "DanglingJournal") { $("#nav-home").addClass("active"); };
+            if (title.includes("Note")) { $("#nav-note").addClass("active"); };
+        });
+    </script>
+
 
 
 </head>

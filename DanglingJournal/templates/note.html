@@ -1,0 +1,130 @@
+{% include "head.html" %}
+{% include "nav.html" %}
+
+
+<style>
+  .single-note {
+    padding: 1%;
+    margin: 1%;
+    background-color: whitesmoke;
+  }
+  .note_head {
+    padding: 1%;
+    text-align-last: end;
+}
+.note_foot {
+    padding: 1%;
+    text-align-last: end;
+}
+.note_body {
+  padding: 1%;
+  margin: 1%;
+}
+
+
+</style>
+
+
+<script>
+
+var NoteFunction = function () {
+  let windowURL = $(location).attr("href").split("/");
+  let finalNewWinURL = windowURL[0] + "//" + windowURL[2] + "/api/note/all";
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": finalNewWinURL,
+    "method": "GET",
+    "headers": {
+      "Content-Type": "application/json",
+      "API_KEY": "R4E3_091t1",
+      "Accept": "*/*",
+      "cache-control": "no-cache"
+    },
+    "processData": false,
+    "data": "",
+      error: function (response) {
+        // console.log("NEW_ERROR: ", response);
+      },
+      success: function (response) {
+        // console.log("NEW SUCCESS: ", response);
+        ConstructNotes(response=response);
+      }
+  }
+
+  // Finally Send function
+  var ajax_request_response_for_retrieve = function () {
+    $.ajax(settings).done(function (response) {
+      // console.log("NEW FINAL RESPONSE from ajax_request_response_for_retrieve: ", response);
+    });
+  }
+
+var ConstructNotes = function (response) {
+  for (let noteobjs of response) {
+    let htmlNote = '<div class="single-note">';
+    htmlNote = htmlNote + '<div class="note_head"><b>Created At: </b>' + noteobjs["created_at"] + "<br />" + '<b>Created By: </b>' + noteobjs["created_by"] + "</div>";
+    htmlNote = htmlNote + '<div class="note_body">' + noteobjs["note"] + "</div>";
+    htmlNote = htmlNote + "</div>";
+    $("#note").append(htmlNote);
+  }
+}
+
+
+
+// Execute
+ajax_request_response_for_retrieve();
+}
+
+  // Main Function
+  $(document).ready(function () {
+    NoteFunction();
+  });
+
+
+</script>
+
+<script>
+    $('textarea').trumbowyg({
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['highlight','preformatted'],
+            ['strong', 'em', 'del'],
+            ['Fonts'],
+            ['link'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['advanced'],
+            ['removeformat'],
+            ['fullscreen']
+        ],
+    
+        btnsDef: {
+            Fonts: {
+                dropdown: ['fontfamily', 'fontsize', 'foreColor', 'backColor'],
+                ico: 'fontsize',
+            },
+            advanced: {
+                dropdown: ['superscript', 'subscript', 'table'],
+                ico: 'table',
+            }
+        },
+        autogrow: true
+    });
+    </script>
+
+<div id="editor">
+</div>
+
+
+<div id="note">
+</div>
+
+
+
+
+
+{% include "foot.html" %}
