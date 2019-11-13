@@ -14,10 +14,7 @@ from flask import redirect, session, jsonify
 from DanglingJournal import app
 
 
-@app.route("/api/", methods=["GET"])
+@app.route("/", methods=["GET"])
 def home():
     if request.method == "GET":
-        to_return = {
-                "msg": "Welcome to DanglingJournal !!!"
-        }
-        return jsonify(to_return)
+            return render_template(template_name_or_list="home.html")
