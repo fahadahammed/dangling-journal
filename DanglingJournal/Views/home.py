@@ -20,8 +20,9 @@ def home_api():
         return {
             "application_name": app.config["APPLICATION_NAME"],
             "version": app.config["DANGLINGJOURNAL_VERSION"],
-            "branch": "dev"
+            "branch": "master"
         }
+
 
 @app.route("/home", methods=["GET"])
 def home():
