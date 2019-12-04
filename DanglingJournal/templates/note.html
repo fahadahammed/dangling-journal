@@ -85,38 +85,10 @@ ajax_request_response_for_retrieve();
 </script>
 
 <script>
-    $('textarea').trumbowyg({
-        btns: [
-            ['viewHTML'],
-            ['undo', 'redo'], // Only supported in Blink browsers
-            ['formatting'],
-            ['highlight','preformatted'],
-            ['strong', 'em', 'del'],
-            ['Fonts'],
-            ['link'],
-            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-            ['unorderedList', 'orderedList'],
-            ['horizontalRule'],
-            ['advanced'],
-            ['removeformat'],
-            ['fullscreen']
-        ],
-    
-        btnsDef: {
-            Fonts: {
-                dropdown: ['fontfamily', 'fontsize', 'foreColor', 'backColor'],
-                ico: 'fontsize',
-            },
-            advanced: {
-                dropdown: ['superscript', 'subscript', 'table'],
-                ico: 'table',
-            }
-        },
-        autogrow: true
-    });
+$('#t-editor').trumbowyg();
     </script>
 
-<div id="editor">
+<div id="t-editor">
 </div>
 
 

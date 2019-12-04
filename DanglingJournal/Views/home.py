@@ -15,6 +15,15 @@ from DanglingJournal import app
 
 
 @app.route("/", methods=["GET"])
+def home_api():
+    if request.method == "GET":
+        return {
+            "application_name": app.config["APPLICATION_NAME"],
+            "version": app.config["DANGLINGJOURNAL_VERSION"],
+            "branch": "dev"
+        }
+
+@app.route("/home", methods=["GET"])
 def home():
     if request.method == "GET":
-            return render_template(template_name_or_list="home.html")
+        return render_template(template_name_or_list="home.html")
